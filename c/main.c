@@ -9,6 +9,20 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+/*void	ft_mkdir(char *mkdir, char *foldername)
+{
+	pid_t	pid;
+	char	**cmds;
+
+	cmds = malloc(sizeof(char *) * 3);
+	cmds[0] = mkdir;
+	cmds[1] = foldername;
+	cmds[2] = NULL;
+	pid = fork();
+	if (pid == 0)
+		execvp(cmds[0], cmds);
+}*/
+
 void	ft_runfork(char *cp, char *srcname, char *destname)
 {
 	pid_t	pid;
