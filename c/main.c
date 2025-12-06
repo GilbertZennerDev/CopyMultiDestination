@@ -1,3 +1,8 @@
+/*
+	//else if (strcmp(av[1], "-folder") == 0 && ft_isfolder(srcname))
+	//	cp = strdup("/bin/cp -r");
+*/
+
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
@@ -19,7 +24,7 @@ void	ft_runfork(char *cp, char *srcname, char *destname)
 		execvp(cmds[0], cmds);
 }
 
-bool ft_isfolder(char *srcname)
+bool	ft_isfolder(char *srcname)
 {
 	unsigned int	i;
 
@@ -33,29 +38,33 @@ bool ft_isfolder(char *srcname)
 	return (false);
 }
 
-int	main(int ac, char **av)
+void	ft_loop_dests(int ac, char **av, char *cp, char *srcname)
 {
 	unsigned int	i;
-	char			*cp;
-	char			*srcname;
 	char			*destname;
 
-	if (ac < 4)
-		return (1);
 	i = 3;
-	srcname = strdup(av[2]);
-	if (strcmp(av[1], "-file") == 0)
-		cp = strdup("/bin/cp");
-	else if (strcmp(av[1], "-folder") == 0 && ft_isfolder(srcname))
-		cp = strdup("/bin/cp -r");
-	else
-		exit(1);
 	while (i < ac)
 	{
 		destname = strdup(av[i++]);
 		ft_runfork(cp, srcname, destname);
 		free(destname);
 	}
+}
+
+int	main(int ac, char **av)
+{
+	char			*cp;
+	char			*srcname;
+
+	if (ac < 4)
+		return (1);
+	srcname = strdup(av[2]);
+	if (strcmp(av[1], "-file") == 0)
+		cp = strdup("/bin/cp");
+	else
+		exit(1);
+	ft_loop_dests(ac, av, cp, srcname);
 	free(cp);
 	free(srcname);
 	return (0);
