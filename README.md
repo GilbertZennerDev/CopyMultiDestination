@@ -94,9 +94,3 @@ if __name__ == '__main__': main()
 ## 🤝 Contributing
 
 Contributions are welcome\! If you have suggestions for new features (like interactive prompts or exclusion patterns), please open an issue or submit a pull request.
-
------
-
-*(This README is perfect because it immediately shows the usage, explains the technical benefits of `shutil`, and highlights the clean structure of your code.)*
-
-Would you like me to help you set up an **`argparse`** version of the script to make the usage section even more powerful with built-in help messages?
