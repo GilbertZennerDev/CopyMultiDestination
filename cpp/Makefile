@@ -1,8 +1,5 @@
-CMD: main.cpp
-	c++ main.cpp -o CMD
-clean: *.o
-	echo "Clean called"
-	rm *.o
-fclean: compiled
+CPM: main.cpp
+	c++ main.cpp -o CPM
+fclean: CPM
 	echo "FClean called"
-	rm CMD
+	rm CPM
